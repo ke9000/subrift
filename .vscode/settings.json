@@ -1,3 +1,12 @@
 {
-    "python.pythonPath": "C:\\Users\\jmtex\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe"
+	"python.analysis.extraPaths": [
+		"subrift",
+		"./lib"
+	],
+	"python.autoComplete.extraPaths": [
+        "/lib"
+    ],
+	"python.jediEnabled": false,
+	"editor.useTabStops": true,
+	"editor.insertSpaces": true
 }
