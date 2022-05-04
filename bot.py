@@ -1,3 +1,4 @@
+from distutils.sysconfig import PREFIX
 import discord
 import json
 import api
@@ -57,14 +58,18 @@ playNext = asyncio.Event()
 #Queue List (For Printing)
 serverQueue = []
 
-#Assign client to commands bot
-client = commands.Bot(command_prefix='s!')
-
 #Retrieve data from json file
 with open("subrift.json", "r") as read_file:
     data = json.load(read_file)
 
 TOKEN = data["DISCORDTOKEN"]
+
+#Assign client to commands bot
+bot_prefix = 's!'
+if 'PREFIX' in data:
+    bot_prefix = data["PREFIX"]
+print("prefix="+bot_prefix);
+client = commands.Bot(command_prefix=bot_prefix)
 
 #Logs Bot in
 @client.event
